@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Recommendations</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .highlight-title {
+      font-weight: bold;
+      background-color: #e0f7fa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #34495e;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .section p {
+      font-size: 1.05em;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .images img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    #map {
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    h2.map-title {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+
+    .item-label {
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      min-width: 30px;
+      text-align: right;
+    }
+
+    .attraction {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .attraction-text {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ✅ שם העיר -->
+    <h1>
+      <span class="highlight-title">
+        Zohar's Travel
+      </span>
+    </h1>
+
+    <!-- פתיחה -->
+    <div class="section">
+      <p>The city that never sleeps! New York City is a treasure trove of iconic landmarks, cultural attractions, and entertainment options. Here are three popular tourist attractions in New York City, each with a short description:</p>
+    </div>
+
+    <!-- אטרקציות -->
+    <div class="section">
+      <h2>Top Attractions</h2>
+
+      <div class="attraction">
+        <span class="item-label">1.</span>
+        <div class="attraction-text">
+          <strong>The Statue of Liberty and Ellis Island</strong>: Take a ferry to Liberty Island to see up close the iconic Statue of Liberty, a symbol of freedom and democracy. You can also visit the Ellis Island Immigration Museum to learn about the history of immigration in the United States.
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">2.</span>
+        <div class="attraction-text">
+          <strong>Central Park</strong>: This 843-acre green oasis in the middle of Manhattan offers a peaceful escape from the hustle and bustle of the city. Take a stroll through the park, rent a bike, or enjoy a picnic on the Great Lawn. You can also visit the Central Park Zoo and Conservatory Garden.
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">3.</span>
+        <div class="attraction-text">
+          <strong>The Empire State Building</strong>: For a panoramic view of the city, head to the Observation Deck of the Empire State Building, an iconic skyscraper that has been featured in numerous movies and TV shows. You can also learn about the building's construction and history through interactive exhibits.
+        </div>
+      </div>
+    </div>
+
+    <!-- סיום -->
+    <div class="section">
+      <p>These are just a few of the many amazing attractions New York City has to offer. Enjoy your trip!</p>
+    </div>
+
+    <!-- תמונות -->
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwxfHwlMjBOZXclMjBZb3JrcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0NzkwOTcwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 1" />
+      <img src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwyfHwlMjBOZXclMjBZb3JrcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0NzkwOTcwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 2" />
+      <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwzfHwlMjBOZXclMjBZb3JrcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0NzkwOTcwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 3" />
+    </div>
+
+    <!-- מפה -->
+    <h2 class="map-title">Attractions on the Map
+
+</h2>
+    <div id="map"></div>
+  </div>
+
+  
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([40.69927, -74.03931], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  L.marker([40.69927, -74.03931]).addTo(map).bindPopup("The Statue of Liberty and Ellis Island");
+L.marker([40.69927, -74.03931]).addTo(map).bindPopup("Central Park");
+L.marker([40.69927, -74.03931]).addTo(map).bindPopup("The Empire State Building");
+
+</script>
+
+</body>
+</html>
