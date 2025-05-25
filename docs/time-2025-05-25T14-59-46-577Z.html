@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Recommendations</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .highlight-title {
+      font-weight: bold;
+      background-color: #e0f7fa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #34495e;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .section p {
+      font-size: 1.05em;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .images img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    #map {
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    h2.map-title {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+
+    .item-label {
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      min-width: 30px;
+      text-align: right;
+    }
+
+    .attraction {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .attraction-text {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>
+      <span class="highlight-title">
+          Hila  's Travel
+      </span>
+    </h1>
+
+    <div class="section">
+      <p>Abu Dhabi! The capital of the UAE is a fantastic destination, blending traditional Middle Eastern charm with contemporary luxury and innovation. I've got some fantastic recommendations for you, with a focus on kid-friendly attractions:</p>
+    </div>
+
+    <div class="section">
+      <h2>Top Attractions</h2>
+
+      <div class="attraction">
+        <span class="item-label">1.</span>
+        <div class="attraction-text">
+          <strong>Ferrari World Abu Dhabi</strong>: Get ready for an adrenaline rush! This theme park is dedicated to the iconic Italian sports car brand. Kids can enjoy thrilling rides, interactive experiences, and even take a virtual drive with their favorite Ferrari model.
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">2.</span>
+        <div class="attraction-text">
+          <strong>Warner Bros. World Abu Dhabi</strong>: Dive into a world of beloved cartoon characters and thrilling rides. This indoor theme park features immersive experiences based on popular Warner Bros. franchises like Batman, Superman, and Looney Tunes. Your little ones will love the colorful scenery and exciting attractions like the Scooby-Doo River Adventure and the Tom and Jerry Wild West Coaster!
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">3.</span>
+        <div class="attraction-text">
+          <strong>Louvre Abu Dhabi</strong>: While it might not seem like an obvious choice for kids, the Louvre Abu Dhabi is an incredible museum that's actually very family-friendly! The museum features an impressive collection of art and cultural artifacts from around the world. Look out for interactive exhibits and workshops designed specifically for young visitors. The museum's stunning architecture and beautiful outdoor spaces are definitely worth exploring.
+
+Additional tips:
+
+* Consider visiting Yas Island, which is home to Ferrari World, Warner Bros. World, and Yas Waterworld (another fantastic water park). You can easily spend a day or two exploring this entertainment hub.
+* Don't miss the stunning Sheikh Zayed Grand Mosque, one of the world's largest mosques, which is open for guided tours. Kids can learn about Islamic culture and history.
+* Take a stroll along the Abu Dhabi Corniche, a picturesque waterfront area with beautiful beaches, parks, and great food options.
+
+Have a fantastic time in Abu Dhabi!
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p></p>
+    </div>
+
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1635791789722-7e2ea631985e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwxfHwlMjBBYnUlMjBEYWJpJTIwJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0ODE4NTE4NXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 1" />
+      <img src="https://images.unsplash.com/photo-1701486822668-84a4bd93b059?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwyfHwlMjBBYnUlMjBEYWJpJTIwJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0ODE4NTE4NXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 2" />
+      <img src="https://images.unsplash.com/photo-1529909746513-b540c1680fdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwzfHwlMjBBYnUlMjBEYWJpJTIwJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0ODE4NTE4NXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 3" />
+    </div>
+
+    <h2 class="map-title">Attractions on the Map
+
+</h2>
+    <div id="map"></div>
+  </div>
+
+  
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([24.484072, 54.6098893], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  L.marker([24.484072, 54.6098893]).addTo(map).bindPopup("Ferrari World Abu Dhabi");
+L.marker([24.4919825, 54.600384]).addTo(map).bindPopup("Warner Bros. World Abu Dhabi");
+L.marker([24.5336814, 54.3986061]).addTo(map).bindPopup("Louvre Abu Dhabi");
+
+</script>
+
+</body>
+</html>
+
+
