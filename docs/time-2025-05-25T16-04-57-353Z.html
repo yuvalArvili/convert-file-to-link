@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Recommendations</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .highlight-title {
+      font-weight: bold;
+      background-color: #e0f7fa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #34495e;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .section p {
+      font-size: 1.05em;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .images img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    #map {
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    h2.map-title {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+
+    .item-label {
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      min-width: 30px;
+      text-align: right;
+    }
+
+    .attraction {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .attraction-text {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>
+      <span class="highlight-title">
+          Yuval  's Travel
+      </span>
+    </h1>
+
+    <div class="section">
+      <p>Rhodes, Greece! A beautiful city with a rich history and stunning landscapes. Here are three popular tourist attractions in Rhodes, each with a short description:
+
+**1. The Palace of the Grand Master of the Knights of Rhodes**
+Explore the impressive palace that was built in the 14th century as a fortress, and later converted into a palace. The palace features stunning Gothic and Ottoman architectural styles, and its visitors can admire the beautiful mosaics, ornate fountains, and grand halls.
+
+**2. The Acropolis of Rhodes**
+Take a short walk up the hill to the Acropolis, which offers breathtaking views of the city and the Aegean Sea. Visit the Temple of Apollo, the Stadium of Diagoras, and the Theater of Rhodes, all of which date back to the 2nd century BC. Kids will love the scenic views and the chance to explore ancient ruins!
+
+**3. Elli Beach**
+Relax and soak up the sun at this popular beach, located just a short walk from the city center. The beach offers calm waters, making it perfect for families with kids. You can also enjoy water sports, beach volleyball, or simply sit back and enjoy the picturesque views of the Rhodes Aquarium, which is located nearby.
+
+All three attractions are suitable for families with kids, offering a mix of history, culture, and relaxation. However, if you're looking for more kid-friendly activities, you may also consider: 
+
+* Rhodes Aquarium: a great place for kids to learn about marine life and see various species up close.
+* Water Park: a fun way to beat the heat and have a splashing good time!
+* Rhodes Old Town: a fun day of exploration, with many shops, cafes, and restaurants to discover.
+
+I hope you enjoy your trip to Rhodes!</p>
+    </div>
+
+    <div class="section">
+      <h2>Top Attractions</h2>
+
+      <div class="attraction">
+        <span class="item-label">1.</span>
+        <div class="attraction-text">
+          
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">2.</span>
+        <div class="attraction-text">
+          undefined
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">3.</span>
+        <div class="attraction-text">
+          undefined
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p>undefined</p>
+    </div>
+
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1735915513169-8c5ab8a8ea3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwxfHwlMjBSaG9kb3MlMjAlMjBwZXJfcGFnZSUzRDN8ZW58MHx8fHwxNzQ4MTg5MDk2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 1" />
+      <img src="https://images.unsplash.com/photo-1735915543229-07c577135b16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwyfHwlMjBSaG9kb3MlMjAlMjBwZXJfcGFnZSUzRDN8ZW58MHx8fHwxNzQ4MTg5MDk2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 2" />
+      <img src="https://images.unsplash.com/photo-1635337189275-c525b91fcfda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwzfHwlMjBSaG9kb3MlMjAlMjBwZXJfcGFnZSUzRDN8ZW58MHx8fHwxNzQ4MTg5MDk2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 3" />
+    </div>
+
+    <h2 class="map-title">Attractions on the Map
+
+</h2>
+    <div id="map"></div>
+  </div>
+
+  
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([36.4454776, 28.2241559], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  L.marker([36.4454776, 28.2241559]).addTo(map).bindPopup("The Palace of the Grand Master of the Knights of Rhodes");
+L.marker([36.4388707, 28.2118831]).addTo(map).bindPopup("The Acropolis of Rhodes");
+L.marker([36.4555474, 28.2217265]).addTo(map).bindPopup("Elli Beach");
+
+</script>
+
+</body>
+</html>
+
+
