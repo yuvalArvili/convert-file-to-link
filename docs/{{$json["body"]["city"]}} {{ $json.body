@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Recommendations</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .highlight-title {
+      font-weight: bold;
+      background-color: #e0f7fa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #34495e;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .section p {
+      font-size: 1.05em;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .images img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    #map {
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    h2.map-title {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+
+    .item-label {
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      min-width: 30px;
+      text-align: right;
+    }
+
+    .attraction {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .attraction-text {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>
+      <span class="highlight-title">
+        'Hilas Travel
+      </span>
+    </h1>
+
+    <div class="section">
+      <p>Abu Dhabi is a great destination! Here are three popular tourist attractions in Abu Dhabi, with a focus on kid-friendly activities:</p>
+    </div>
+
+    <div class="section">
+      <h2>Top Attractions</h2>
+
+      <div class="attraction">
+        <span class="item-label">1.</span>
+        <div class="attraction-text">
+          <strong>Ferrari World</strong>: This theme park is a thrill for kids and adults alike! With over 20 rides and attractions, and the world's fastest rollercoaster, it's an adrenaline rush like no other. The park is also home to a Ferrari museum, where kids can learn about the iconic car brand.
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">2.</span>
+        <div class="attraction-text">
+          <strong>Emirates Park Zoo</strong>: A fun day out for kids, the Emirates Park Zoo is home to over 1,700 animals, including a petting zoo, pony rides, and a mini zoo for younger kids. The zoo also offers a 'behind-the-scenes' tour, where kids can get up close and personal with the animals.
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">3.</span>
+        <div class="attraction-text">
+          <strong>Yas Waterworld</strong>: This water park is a great way to cool off on a hot Abu Dhabi day. The park features a variety of slides, a wave pool, and a lazy river. There's also a dedicated area for younger kids, with gentler slides and water play areas.
+
+Additional suggestions for kids:
+
+* **Louvre Abu Dhabi**: While not exclusively a kids' attraction, the museum offers family-friendly workshops and activities, making art and culture accessible to kids.
+* **Abu Dhabi **Khalifa Park**: A large public park offers plenty of green space for running around, as well as a lake, walking trails, and picnic areas.
+
+Remember to plan your day according to the attractions' operating hours, and consider booking tickets in advance to avoid long queues. Have a fantastic time in Abu Dhabi!
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p></p>
+    </div>
+
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1635791789722-7e2ea631985e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwxfHxBYnUlMjBEYWJpJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0ODE1MzkwMnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 1" />
+      <img src="https://images.unsplash.com/photo-1701486822668-84a4bd93b059?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwyfHxBYnUlMjBEYWJpJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0ODE1MzkwMnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 2" />
+      <img src="https://images.unsplash.com/photo-1529909746513-b540c1680fdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwzfHxBYnUlMjBEYWJpJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0ODE1MzkwMnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 3" />
+    </div>
+
+    <h2 class="map-title">Attractions on the Map
+
+</h2>
+    <div id="map"></div>
+  </div>
+
+  
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([24.484072, 54.6098893], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  L.marker([24.484072, 54.6098893]).addTo(map).bindPopup("Ferrari World");
+L.marker([24.5464947, 54.6737438]).addTo(map).bindPopup("Emirates Park Zoo");
+L.marker([24.4878628, 54.5994685]).addTo(map).bindPopup("Yas Waterworld");
+
+</script>
+
+</body>
+</html>
+
+
