@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Recommendations</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .highlight-title {
+      font-weight: bold;
+      background-color: #e0f7fa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #34495e;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .section p {
+      font-size: 1.05em;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .images img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    #map {
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    h2.map-title {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+
+    .item-label {
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      min-width: 30px;
+      text-align: right;
+    }
+
+    .attraction {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .attraction-text {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>
+      <span class="highlight-title">
+        Roni laufer  's Travel
+      </span>
+    </h1>
+
+    <div class="section">
+      <p>Amsterdam! What a wonderful city! Here are three popular attractions in Amsterdam, each with a short description:
+
+**1. The Rijksmuseum**
+Explore the Dutch Golden Age at this iconic museum, featuring an impressive collection of art and artifacts, including Rembrandt's Night Watch. With over 8,000 objects on display, you'll discover the richness of Netherlands' history and culture.
+
+**2. The Anne Frank House**
+Step into the secret annex where Anne Frank and her family hid during WWII. This museum showcases the Jewish girl's diary and the history of the persecution of Jews during the war. Be prepared for an emotional and eye-opening experience.
+
+**3. The Vondelpark**
+Escape the hustle and bustle of the city in Amsterdam's largest park, the Vondelpark. Stroll through the beautiful gardens, rent a bike, or enjoy a picnic on the grass. It's a tranquil oasis in the heart of the city.
+
+Enjoy your trip to Amsterdam!</p>
+    </div>
+
+    <div class="section">
+      <h2>Top Attractions</h2>
+
+      <div class="attraction">
+        <span class="item-label">1.</span>
+        <div class="attraction-text">
+          
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">2.</span>
+        <div class="attraction-text">
+          undefined
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">3.</span>
+        <div class="attraction-text">
+          undefined
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p>undefined</p>
+    </div>
+
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1519475889208-0968e5438f7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwxfHxBbXN0ZXJkYW0lMjAlMjBwZXJfcGFnZSUzRDN8ZW58MHx8fHwxNzQ4MjY0NzYyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 1" />
+      <img src="https://images.unsplash.com/photo-1542139368-847f8e3fbc6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwyfHxBbXN0ZXJkYW0lMjAlMjBwZXJfcGFnZSUzRDN8ZW58MHx8fHwxNzQ4MjY0NzYyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 2" />
+      <img src="https://images.unsplash.com/photo-1533192957936-fbca59de6688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwzfHxBbXN0ZXJkYW0lMjAlMjBwZXJfcGFnZSUzRDN8ZW58MHx8fHwxNzQ4MjY0NzYyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 3" />
+    </div>
+
+    <h2 class="map-title">Attractions on the Map
+
+</h2>
+    <div id="map"></div>
+  </div>
+
+  
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([52.0990557, 4.2968849], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  L.marker([52.0990557, 4.2968849]).addTo(map).bindPopup("The Rijksmuseum");
+L.marker([52.37515, 4.8842]).addTo(map).bindPopup("The Anne Frank House");
+L.marker([52.35739, 4.86733]).addTo(map).bindPopup("The Vondelpark");
+
+</script>
+
+</body>
+</html>
+
+
