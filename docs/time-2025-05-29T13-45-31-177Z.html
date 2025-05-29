@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Recommendations</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .highlight-title {
+      font-weight: bold;
+      background-color: #e0f7fa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #34495e;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .section p {
+      font-size: 1.05em;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .images img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    #map {
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    h2.map-title {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+
+    .item-label {
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      min-width: 30px;
+      text-align: right;
+    }
+
+    .attraction {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .attraction-text {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>
+      <span class="highlight-title">
+        Roni laufer  's Travel
+      </span>
+    </h1>
+
+    <div class="section">
+      <p>Paris, the City of Light! You're in for a treat. Here are three popular tourist attractions in Paris, each with a short description:
+
+**1. The Eiffel**
+The iconic iron lady offers breathtaking views of the city from its top deck. You can take the stairs or elevator to the summit, and even dine at the Michelin-starred Le Jules Verne.
+
+**2. The Louvre Museum**
+Home to the Mona Lisa, the Louvre is one of the world's largest and most visited museums. Its stunning glass pyramid entrance, ancient Egyptian artifacts, and an impressive collection of European art make it a must-visit.
+
+**3. Notre-Dame Cathedral**
+This beautiful Gothic church, built in the 12th century, is famous for its intricate stone carvings, stunning stained-glass windows, and the legendary hunchback, Quasimodo. You can take a guided tour or attend a Mass to experience its grandeur.
+
+Enjoy your time in Paris:
+
+* Take a romantic Seine River cruise
+* Explore the trendy Marais neighborhood
+* Visit the Palace of Versailles (just outside Paris)
+* Indulge in French cuisine at a charming bistro or café
+
+Bon voyage et à bientôt à Paris!</p>
+    </div>
+
+    <div class="section">
+      <h2>Top Attractions</h2>
+
+      <div class="attraction">
+        <span class="item-label">1.</span>
+        <div class="attraction-text">
+          
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">2.</span>
+        <div class="attraction-text">
+          undefined
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">3.</span>
+        <div class="attraction-text">
+          undefined
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p>undefined</p>
+    </div>
+
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1471623320832-752e8bbf8413?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwxfHxwYXJpcyUyMCUyMHBlcl9wYWdlJTNEM3xlbnwwfHx8fDE3NDg1MjYzMzB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 1" />
+      <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwyfHxwYXJpcyUyMCUyMHBlcl9wYWdlJTNEM3xlbnwwfHx8fDE3NDg1MjYzMzB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 2" />
+      <img src="https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwzfHxwYXJpcyUyMCUyMHBlcl9wYWdlJTNEM3xlbnwwfHx8fDE3NDg1MjYzMzB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 3" />
+    </div>
+
+    <h2 class="map-title">Attractions on the Map
+
+</h2>
+    <div id="map"></div>
+  </div>
+
+  
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([28.435433, 77.1408921], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  L.marker([28.435433, 77.1408921]).addTo(map).bindPopup("The Eiffel");
+L.marker([null, null]).addTo(map).bindPopup("The Louvre Museum");
+L.marker([49.6095961, 6.1315787]).addTo(map).bindPopup("Notre-Dame Cathedral");
+
+</script>
+
+</body>
+</html>
+
+
