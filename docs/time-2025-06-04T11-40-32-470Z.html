@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Recommendations</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .highlight-title {
+      font-weight: bold;
+      background-color: #e0f7fa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #34495e;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .section p {
+      font-size: 1.05em;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .images img {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    #map {
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    h2.map-title {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+
+    .item-label {
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      min-width: 30px;
+      text-align: right;
+    }
+
+    .attraction {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .attraction-text {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>
+      <span class="highlight-title">
+        Zohar Marciano  's Travel
+      </span>
+    </h1>
+
+    <div class="section">
+      <p>The city that never sleeps! New York City is an iconic destination, and I'm excited to share three popular tourist attractions with a short description each:**</p>
+    </div>
+
+    <div class="section">
+      <h2>Top Attractions</h2>
+
+      <div class="attraction">
+        <span class="item-label">1.</span>
+        <div class="attraction-text">
+          <strong>The Statue of Liberty and Ellis Island</strong>: Take a ferry to Liberty Island to see up close the iconic statue, a symbol of freedom and democracy. Be sure to book tickets in advance to access the pedestal or crown.
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">2.</span>
+        <div class="attraction-text">
+          <strong>Central Park</strong>: This 843-acre green oasis in the middle of Manhattan offers a peaceful escape from the hustle and bustle of the city. Walk, bike, or take a leisurely boat ride through the park, visiting famous landmarks like the Bethesda Fountain and the Conservatory Garden.
+        </div>
+      </div>
+
+      <div class="attraction">
+        <span class="item-label">3.</span>
+        <div class="attraction-text">
+          <strong>The Empire State Building</strong>: For a panoramic view of the city, head to the observation deck of the Empire State Building, an iconic NYC landmark. Be prepared for breathtaking views of the city skyline, especially during sunset or at night when the lights are twinkling.
+
+These attractions are must-visit experiences in New York City. Enjoy your trip!
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p></p>
+    </div>
+
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1532952626554-d0cace1cd3fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwxfHxOZXclMjBZb3JrJTIwJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0OTAzNzIzMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 1" />
+      <img src="https://images.unsplash.com/photo-1585869388887-72e92fccd798?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwyfHxOZXclMjBZb3JrJTIwJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0OTAzNzIzMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 2" />
+      <img src="https://images.unsplash.com/photo-1536008046477-01746710ffb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTI0NTh8MHwxfHNlYXJjaHwzfHxOZXclMjBZb3JrJTIwJTIwcGVyX3BhZ2UlM0QzfGVufDB8fHx8MTc0OTAzNzIzMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Image 3" />
+    </div>
+
+    <h2 class="map-title">Attractions on the Map
+
+</h2>
+    <div id="map"></div>
+  </div>
+
+  
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([40.69927, -74.03931], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  L.marker([40.69927, -74.03931]).addTo(map).bindPopup("The Statue of Liberty and Ellis Island");
+L.marker([40.7827725, -73.9653627]).addTo(map).bindPopup("Central Park");
+L.marker([40.74871, -73.98597]).addTo(map).bindPopup("The Empire State Building");
+
+</script>
+
+</body>
+</html>
+
+
